@@ -28,7 +28,7 @@ end
 # Auth to GitHub.com
 client = Octokit::Client.new(:access_token => ENV['GH_TOKEN'])
 client.auto_paginate = true
-client.default_media_type = "application/vnd.github.mercy-preview+json"
+client.default_media_type = "application/vnd.github.v3+json"
 
 # Get repos for the configured ORGANIZATION and TOPIC
 # Note: The GitHub Search API limits search results to max 1.000 repos.

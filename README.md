@@ -1,6 +1,8 @@
 # innersource-crawler-ruby
 
-This project creates a `repos.json` that can be utilized by the [SAP InnerSource Portal][SAP-InnerSource-Portal]. The current approach assumes that the repos that you want to show in the portal are available in a GitHub organization, and that they all are tagged with a certain _topic_.
+This project creates a `repos.json` file that can be utilized by the [SAP InnerSource Portal][SAP-InnerSource-Portal]. See [sample JSON structure](https://github.com/SAP/project-portal-for-innersource/blob/main/repos.json).
+
+The crawler assumes that the repositories that you want to show in the portal are available in a GitHub organization, and that they all are tagged with a certain _topic_ e.g. `inner-source`.
 
 ## Installation
 
@@ -8,24 +10,23 @@ This project creates a `repos.json` that can be utilized by the [SAP InnerSource
 
 ## Usage
 
-### Configuration
-
-You only have to do the below configuration once.
+### Configuration (one time only)
 
 1. Copy `.env-example` to `.env`
-1. Fill out the `.env` file with a _token_ from a user that has access to the organization to scan (listed below)
-1. Fill out the `.env` file with the exact _topic_ name you are searching for
-1. Fill out the `.env` file with the exact _organization_ that you want to search in
+1. In `.env` fill in `ORGANIZATION` with the exact name of the GitHub organization to search in
+1. In `.env` fill in `GH_TOKEN` with the [access token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) from a user that has access to the organization to search in
+1. In `.env` fill in `TOPIC` with the name of the topic to search for
+
 
 ### Crawling
 
-Running the crawler will create a `repos.json` file containing the relevant metadata for the GitHub repos for the given _topic_.
+Running the crawler will create a `repos.json` file containing the relevant metadata for the GitHub repos containing the given `TOPIC` in the given `ORGANIZATION`.
 
 ```
 ruby crawler.rb
 ```
 
-After that, copy `repos.json` to your instance of the [SAP-InnerSource-Portal][SAP-InnerSource-Portal] and launch the portal as outlined in their installation instructions
+After that, copy `repos.json` to your instance of the [SAP-InnerSource-Portal][SAP-InnerSource-Portal] and launch the portal as outlined in their installation instructions.
 
 ## References
 

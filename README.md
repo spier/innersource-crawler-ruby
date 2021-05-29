@@ -15,7 +15,11 @@ This project creates a `repos.json` that can be utilized by the [SAP InnerSource
 1. Run `ruby ./crawler.rb`, which will create a `repos.json` file containing the relevant metadata for the GitHub repos for the given _topic_
 1. Copy `repos.json` to your instance of the [SAP-InnerSource-Portal][SAP-InnerSource-Portal] and launch the portal as outlined in their installation instructions
 
-[SAP-InnerSource-Portal]: https://github.com/sap/project-portal-for-InnerSource
+## References
+
+* This crawler is meant to be used in combination with the [SAP InnerSource Portal][SAP-InnerSource-Portal] to list all InnerSource projects of a company.
+* That portal is a reference implementation of the [InnerSource Portal pattern](https://patterns.innersourcecommons.org/p/innersource-portal). To understand the motivation behind using such a portal in your company, we recommend to read that pattern.
+* [zkoppert/innersource-crawler](https://github.com/zkoppert/innersource-crawler) is another crawler implementation similar to this one, but using Python instead.
 
 ## Contributing
 
@@ -26,3 +30,5 @@ Before sending a Pull Request with a change, we recommend that you open an [Issu
 ## License
 
 [MIT License](LICENSE)
+
+[SAP-InnerSource-Portal]: https://github.com/sap/project-portal-for-InnerSource

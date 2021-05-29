@@ -16,3 +16,13 @@ This project creates a `repos.json` that can be utilized by the [SAP InnerSource
 1. Copy `repos.json` to your instance of the [SAP-InnerSource-Portal][SAP-InnerSource-Portal] and launch the portal as outlined in their installation instructions
 
 [SAP-InnerSource-Portal]: https://github.com/sap/project-portal-for-InnerSource
+
+## Contributing
+
+You want to contribute something to this project? That's awesome! :)
+
+Before sending a Pull Request with a change, we recommend that you open an [Issue](https://github.com/spier/innersource-crawler-ruby/issues) first, to discuss the proposed change with the rest of the community.
+
+## License
+
+[MIT License](LICENSE)

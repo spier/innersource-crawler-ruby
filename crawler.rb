@@ -28,7 +28,7 @@ end
 # Auth to GitHub.com
 client = Octokit::Client.new(:access_token => ENV['GH_TOKEN'])
 client.auto_paginate = true
-client.default_media_type = "application/vnd.github.v3+json"
+client.default_media_type = "application/vnd.github.mercy-preview+json"
 
 # Get repos for the configured ORGANIZATION and TOPIC
 # Note: The GitHub Search API limits search results to max 1.000 repos.
@@ -45,6 +45,10 @@ repos[:items].each do |repo|
   repo["_InnerSourceMetadata"] = {}
   repo["_InnerSourceMetadata"]["participation"] = participation_stats["all"]
   repo["_InnerSourceMetadata"]["score"] = calculateScore(repo)
+
+  # move topics from root into _InnerSourceMetadata
+  repo["_InnerSourceMetadata"]["topics"] = repo.topics
+  repo.delete("topics")
 
   if (fileExists?(client, repo, "CONTRIBUTING.md"))
     repo["_InnerSourceMetadata"]["guidelines"] = "CONTRIBUTING.md"
